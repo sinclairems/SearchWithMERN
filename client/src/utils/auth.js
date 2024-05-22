@@ -27,22 +27,31 @@ class AuthService {
     }
   }
 
-  getToken() {
-    // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token');
+  getToken(context) {
+    // Check if context is available (GraphQL context)
+    if (context && context.req && context.req.headers.authorization) {
+      let token = context.req.headers.authorization || "";
+      if (token) {
+        token = token.split(" ").pop().trim(); // Extract token from Bearer
+        return token;
+      }
+    }
+
+    // Fallback to localStorage if no GraphQL context
+    return localStorage.getItem("id_token");
   }
 
   login(idToken) {
     // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    localStorage.setItem("id_token", idToken);
+    window.location.assign("/");
   }
 
   logout() {
     // Clear user token and profile data from localStorage
-    localStorage.removeItem('id_token');
+    localStorage.removeItem("id_token");
     // this will reload the page and reset the state of the application
-    window.location.assign('/');
+    window.location.assign("/");
   }
 }
 
