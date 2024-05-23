@@ -1,4 +1,4 @@
-import { useState } from "react"; // Removed useEffect
+import { useState } from "react"; 
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { useQuery, useMutation } from "@apollo/client"; // Import Apollo hooks
 import { GET_ME } from "../utils/queries";
@@ -6,16 +6,12 @@ import { REMOVE_BOOK } from "../utils/mutations"; // Import the mutation
 import { removeBookId } from "../utils/localStorage";
 
 const SavedBooks = () => {
-  // Removed userDataLength
-
   // Use useQuery to fetch user data
   const { loading, error, data } = useQuery(GET_ME);
   const userData = data?.me || {};
 
   // Use useMutation for deleting books
   const [removeBook, { error: removeBookError }] = useMutation(REMOVE_BOOK);
-
-  // Removed useEffect
 
   const handleDeleteBook = async (bookId) => {
     try {
