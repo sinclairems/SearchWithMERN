@@ -1,0 +1,22 @@
+[
+  {
+    "username": "Brian McKnight",
+    "email": "bMcKnight@mern.com",
+    "password": "password1134"
+  }
+  {
+    "username": "John Legend",
+    "email": "jLegend@mern.com",
+    "password": "password1234"
+  }
+  {
+    "username": "Alicia Keys",
+    "email": "aKeys@mern.com",
+    "password": "password1334"
+  }
+  {
+    "username": "Beyonce",
+    "email": "queenB@mern.com",
+    "password": "password1434"
+  }
+]
